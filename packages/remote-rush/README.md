@@ -1,29 +1,30 @@
-# @vercel/remote-rush
+# @khulnasoft/remote-rush
 
-[![@vercel/remote-rush](https://img.shields.io/npm/v/@vercel/remote-rush)](https://npmjs.org/@vercel/remote-rush)
+[![@khulnasoft/remote-rush](https://img.shields.io/npm/v/@khulnasoft/remote-rush)](https://npmjs.org/@khulnasoft/remote-rush)
 
-This is a [Rush](https://rushjs.io/) plugin for using Vercel Remote Cache provider during the "build" and "rebuild" command.
+This is a [Rush](https://rushjs.io/) plugin for using Khulnasoft Remote Cache provider during the "build" and "rebuild" command.
 
 ## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Setting up a new Rush monorepo with Vercel Remote Cache](#setting-up-a-new-rush-monorepo-with-vercel-remote-cache)
+- [Setting up a new Rush monorepo with Khulnasoft Remote Cache](#setting-up-a-new-rush-monorepo-with-khulnasoft-remote-cache)
   - [Setup Rush monorepo](#setup-rush-monorepo)
 - [Add caching](#add-caching)
-- [Add remote caching with Vercel](#add-remote-caching-with-vercel)
-  - [Download and install the @vercel/remote-rush plugin](#download-and-install-the-vercelremote-rush-plugin)
+- [Add remote caching with Khulnasoft](#add-remote-caching-with-khulnasoft)
+  - [Download and install the @khulnasoft/remote-rush plugin](#download-and-install-the-khulnasoftremote-rush-plugin)
   - [Configuring token for the Remote Cache](#configuring-token-for-the-remote-cache)
     - [Using Environment Variables](#using-environment-variables)
     - [Using Rush user store](#using-rush-user-store)
-    - [Authenticating during a Vercel Build](#authenticating-during-a-vercel-build)
+    - [Authenticating during a Khulnasoft Build](#authenticating-during-a-khulnasoft-build)
   - [Finally](#finally)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Setting up a new Rush monorepo with Vercel Remote Cache
+## Setting up a new Rush monorepo with Khulnasoft Remote Cache
 
-In this sequence we will configure the [microsoft/rush-example](https://github.com/microsoft/rush-example) repo to use the Vercel Remote Cache.
+In this sequence we will configure the [microsoft/rush-example](https://github.com/microsoft/rush-example) repo to use the Khulnasoft Remote Cache.
 
 ### Setup Rush monorepo
 
@@ -194,22 +195,22 @@ These operations completed successfully:
 rush build (1.73 seconds)
 ```
 
-## Add remote caching with Vercel
+## Add remote caching with Khulnasoft
 
-Let's assume you already have a Vercel Account. For the rest of the guide you will need a Vercel Access Token and your team ID or team slug. You can create a vercel access token in your [account settings](https://vercel.com/account/tokens). Your team ID can be found under your team settings page.
+Let's assume you already have a Khulnasoft Account. For the rest of the guide you will need a Khulnasoft Access Token and your team ID or team slug. You can create a khulnasoft access token in your [account settings](https://khulnasoft.com/account/tokens). Your team ID can be found under your team settings page.
 
-Have those handy as we'll need them to authorize your monorepo to Vercel's Remote Cache.
+Have those handy as we'll need them to authorize your monorepo to Khulnasoft's Remote Cache.
 
-### Download and install the @vercel/remote-rush plugin
+### Download and install the @khulnasoft/remote-rush plugin
 
-Vercel's Remote Cache on Rush is enabled using the `@vercel/remote-rush` plugin. Install this plugin using Rush's [autoinstaller](https://rushjs.io/pages/maintainer/using_rush_plugins/).
+Khulnasoft's Remote Cache on Rush is enabled using the `@khulnasoft/remote-rush` plugin. Install this plugin using Rush's [autoinstaller](https://rushjs.io/pages/maintainer/using_rush_plugins/).
 
 ```sh
 rush init-autoinstaller --name rush-plugins
 ```
 
 This creates a new npm package in `common/autoinstallers/rush-plugins`.
-Add `@vercel/remote-rush` as a dependency to this `package.json`.
+Add `@khulnasoft/remote-rush` as a dependency to this `package.json`.
 
 ```jsonc
 {
@@ -218,7 +219,7 @@ Add `@vercel/remote-rush` as a dependency to this `package.json`.
   "private": true,
   "dependencies": {
     // We added this line
-    "@vercel/remote-rush": "latest"
+    "@khulnasoft/remote-rush": "latest"
   }
 }
 ```
@@ -229,7 +230,7 @@ To download the package and generate the shrinkwrap file run
 rush update-autoinstaller --name rush-plugins
 ```
 
-You will now find that `@vercel/remote-rush` has been downloaded and added to `node_modules` under `common/autoinstallers/rush-plugins/node_modules/@vercel/remote-rush`.
+You will now find that `@khulnasoft/remote-rush` has been downloaded and added to `node_modules` under `common/autoinstallers/rush-plugins/node_modules/@khulnasoft/remote-rush`.
 
 Next, register the plugin under `common/config/rush/rush-plugins.json` so that it's loaded when Rush executes.
 Update the `rush-plugins.json` file so it matches the following config.
@@ -240,21 +241,21 @@ Update the `rush-plugins.json` file so it matches the following config.
   "plugins": [
     // We added this entry
     {
-      "packageName": "@vercel/remote-rush",
-      "pluginName": "rush-vercel-remote-cache-plugin",
+      "packageName": "@khulnasoft/remote-rush",
+      "pluginName": "rush-khulnasoft-remote-cache-plugin",
       "autoinstallerName": "rush-plugins"
     }
   ]
 }
 ```
 
-Finally we need to point Rush's build cache configuration to point to Vercel's Remote Cache plugin instead of the local cache. Update `"cacheProvider": "vercel-remote-cache",` in `common/config/rush/build-cache.json` so it matches the following config.
+Finally we need to point Rush's build cache configuration to point to Khulnasoft's Remote Cache plugin instead of the local cache. Update `"cacheProvider": "khulnasoft-remote-cache",` in `common/config/rush/build-cache.json` so it matches the following config.
 
 ```jsonc
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/build-cache.schema.json",
   "buildCacheEnabled": true,
-  "cacheProvider": "vercel-remote-cache"
+  "cacheProvider": "khulnasoft-remote-cache"
 }
 ```
 
@@ -266,12 +267,12 @@ Create the folder `common/config/rush-plugins`
 mkdir common/config/rush-plugins
 ```
 
-In this folder add the configuration file `rush-vercel-remote-cache-plugin.json` that contains an empty JSON object.
+In this folder add the configuration file `rush-khulnasoft-remote-cache-plugin.json` that contains an empty JSON object.
 
-```jsonc filename=rush-vercel-remote-cache-plugin.json
+```jsonc filename=rush-khulnasoft-remote-cache-plugin.json
 {
-  // Later we will uncomment this line and replace `<teamId>` with your 
-  // Vercel team ID so you can share build artifacts with your team.
+  // Later we will uncomment this line and replace `<teamId>` with your
+  // Khulnasoft team ID so you can share build artifacts with your team.
   // "teamId": "<teamId>"
 }
 ```
@@ -284,13 +285,13 @@ rush update
 
 ### Configuring token for the Remote Cache
 
-If you run `rush rebuild` now, you'll receive an error message indicating you are missing credentials for the Vercel Remote Cache. Add your Vercel access token to your Rush project using the environment variable `RUSH_BUILD_CACHE_CREDENTIAL` or on you local Rush user store.
+If you run `rush rebuild` now, you'll receive an error message indicating you are missing credentials for the Khulnasoft Remote Cache. Add your Khulnasoft access token to your Rush project using the environment variable `RUSH_BUILD_CACHE_CREDENTIAL` or on you local Rush user store.
 
 #### Using Environment Variables
 
-You can set your vercel access token on the `RUSH_BUILD_CACHE_CREDENTIAL` environment variable which has the format `<token>` or `<teamId>:<token>`.
+You can set your khulnasoft access token on the `RUSH_BUILD_CACHE_CREDENTIAL` environment variable which has the format `<token>` or `<teamId>:<token>`.
 
-If the `RUSH_BUILD_CACHE_CREDENTIAL` has the form `<teamId>:<token>`, the provided `<teamId>` will override the `teamId` argument in the `rush-vercel-remote-cache-plugin.json` config file.
+If the `RUSH_BUILD_CACHE_CREDENTIAL` has the form `<teamId>:<token>`, the provided `<teamId>` will override the `teamId` argument in the `rush-khulnasoft-remote-cache-plugin.json` config file.
 
 #### Using Rush user store
 
@@ -298,24 +299,24 @@ If the `RUSH_BUILD_CACHE_CREDENTIAL` has the form `<teamId>:<token>`, the provid
 rush update-cloud-credentials --credential <token>
 ```
 
-This command will store your Vercel access token on your Rush user store in `~/.rush-user/credentials.json`. You can re-run the command to update the token.
+This command will store your Khulnasoft access token on your Rush user store in `~/.rush-user/credentials.json`. You can re-run the command to update the token.
 
-#### Authenticating during a Vercel Build
+#### Authenticating during a Khulnasoft Build
 
-When deploying your project on Vercel, your Rush project is automatically authenticated to the project owner. You do not need to set a `teamId` or `token`.
-The Vercel Build sets the `VERCEL_ARTIFACTS_OWNER` and `VERCEL_ARTIFACTS_TOKEN` enviroment variables which supersede this configuration.
+When deploying your project on Khulnasoft, your Rush project is automatically authenticated to the project owner. You do not need to set a `teamId` or `token`.
+The Khulnasoft Build sets the `KHULNASOFT_ARTIFACTS_OWNER` and `KHULNASOFT_ARTIFACTS_TOKEN` enviroment variables which supersede this configuration.
 
 ### Finally
 
-Force the project to rebuild and upload build artifacts to Vercel's Remote Cache with `rush rebuild`
+Force the project to rebuild and upload build artifacts to Khulnasoft's Remote Cache with `rush rebuild`
 
 ```sh
 rush rebuild
 ```
 
-You have a working Rush monorepo utilizing Vercel's Remote Cache.
+You have a working Rush monorepo utilizing Khulnasoft's Remote Cache.
 
-Verify that you are utilizing Vercel's Remote Cache by deleting the local cache and building with `rush build --verbose`
+Verify that you are utilizing Khulnasoft's Remote Cache by deleting the local cache and building with `rush build --verbose`
 
 ```sh
 rm -r common/temp/build-cache

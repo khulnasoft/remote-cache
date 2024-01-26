@@ -14,14 +14,14 @@ body:
       multiple: true
       label: Which package / area of the repo does the bug impact?
       options:
-        - "@vercel/remote"
-        - "@vercel/remote-nx"
-        - "@vercel/remote-rush"
+        - "@khulnasoft/remote"
+        - "@khulnasoft/remote-nx"
+        - "@khulnasoft/remote-rush"
         - other
   - type: input
     attributes:
       label: What version are you using?
-      description: "For example: @vercel/remote-nx@1.0.0"
+      description: "For example: @khulnasoft/remote-nx@1.0.0"
     validations:
       required: true
   - type: dropdown

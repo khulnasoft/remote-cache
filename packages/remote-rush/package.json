@@ -1,10 +1,10 @@
 {
-  "name": "@vercel/remote-rush",
+  "name": "@khulnasoft/remote-rush",
   "version": "1.0.1",
-  "description": "Remote caching for Rush using Vercel Remote Cache",
+  "description": "Remote caching for Rush using Khulnasoft Remote Cache",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vercel/remote-cache.git"
+    "url": "git+https://github.com/khulnasoft/remote-cache.git"
   },
   "files": [
     "dist",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@rushstack/node-core-library": "latest",
     "@rushstack/rush-sdk": "5.78.0",
-    "@vercel/remote": "workspace:^",
+    "@khulnasoft/remote": "workspace:^",
     "https-proxy-agent": "~5.0.0"
   }
 }

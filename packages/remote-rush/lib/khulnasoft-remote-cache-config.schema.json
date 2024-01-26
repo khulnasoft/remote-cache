@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Configuration for Khulnasoft Remote Cache",
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "type": "string",
+      "description": "The Khulnasoft Team ID that should share remote cache artifacts. Leaving this empty will upload artifacts under your personal account. When deploying your app on Khulnasoft this value is ignored and the Team ID on the Khulnasoft deployment will be used."
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import { createClient } from '@vercel/remote';
+import { createClient } from '@khulnasoft/remote';
 import { EnvironmentVariableNames, RushConstants } from '@rushstack/rush-sdk';
 import {
-  deleteVercelCredentialForUserStore,
-  getVercelCredentialTeamTokenPair,
-  updateVercelCredentialForUserStore,
+  deleteKhulnasoftCredentialForUserStore,
+  getKhulnasoftCredentialTeamTokenPair,
+  updateKhulnasoftCredentialForUserStore,
 } from './credential';
 import type {
   ICloudBuildCacheProvider,
@@ -11,33 +11,33 @@ import type {
 } from '@rushstack/rush-sdk';
 import type { ITerminal } from '@rushstack/node-core-library';
 
-export interface VercelRemoteCacheConfiguration {
+export interface KhulnasoftRemoteCacheConfiguration {
   teamId?: string;
 }
-export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
+export class KhulnasoftRemoteCacheProvider implements ICloudBuildCacheProvider {
   // For logging to terminal
   private _rushSession: RushSession;
-  private _options: VercelRemoteCacheConfiguration;
+  private _options: KhulnasoftRemoteCacheConfiguration;
 
   // TODO: make this dynamic when rush supports passing this along
   // in the build-cache.json
   public isCacheWriteAllowed = true;
 
   public constructor(
-    options: VercelRemoteCacheConfiguration,
+    options: KhulnasoftRemoteCacheConfiguration,
     rushSession: RushSession,
   ) {
     this._options = options;
     this._rushSession = rushSession;
   }
 
-  private async _getVercelRemoteCacheClient() {
-    const credentials = await getVercelCredentialTeamTokenPair(
+  private async _getKhulnasoftRemoteCacheClient() {
+    const credentials = await getKhulnasoftCredentialTeamTokenPair(
       this._options.teamId,
     );
     if (!credentials.token) {
       throw new Error(
-        'Missing credentials for Vercel Remote Cache. ' +
+        'Missing credentials for Khulnasoft Remote Cache. ' +
           `Update the credentials by running "rush ${RushConstants.updateCloudCredentialsCommandName} --credential <token>", ` +
           `or provide the <token> in the ` +
           `${EnvironmentVariableNames.RUSH_BUILD_CACHE_CREDENTIAL} environment variable`,
@@ -52,7 +52,7 @@ export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
     hash: string,
   ): Promise<Buffer | undefined> {
     try {
-      const remote = await this._getVercelRemoteCacheClient();
+      const remote = await this._getKhulnasoftRemoteCacheClient();
       const exists = await remote.exists(hash).send();
       if (!exists) {
         terminal.writeVerboseLine('Artifact not found: ', hash);
@@ -75,12 +75,12 @@ export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
   ): Promise<boolean> {
     terminal.writeVerboseLine('Uploading artifact hash: ', hash);
     try {
-      const remote = await this._getVercelRemoteCacheClient();
+      const remote = await this._getKhulnasoftRemoteCacheClient();
       await remote.put(hash).buffer(objectBuffer);
       return true;
     } catch (e) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      terminal.writeWarningLine(`Error uploading cache entry to Vercel: ${e}`);
+      terminal.writeWarningLine(`Error uploading cache entry to Khulnasoft: ${e}`);
       return false;
     }
   }
@@ -89,7 +89,7 @@ export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
     terminal: ITerminal,
     credential: string,
   ): Promise<void> {
-    await updateVercelCredentialForUserStore(credential, this._options.teamId);
+    await updateKhulnasoftCredentialForUserStore(credential, this._options.teamId);
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await
@@ -97,7 +97,7 @@ export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
     _terminal: ITerminal,
   ): Promise<void> {
     throw new Error(
-      'The interactive cloud credentials flow is not supported for Vercel Remote Cache.\n' +
+      'The interactive cloud credentials flow is not supported for Khulnasoft Remote Cache.\n' +
         'Provide your credentials to rush using the --credential flag instead. Credentials must be ' +
         'in the form <teamId>:<token> or <token>. If no teamId is provided, ' +
         'build outputs will be uploaded to your personal account scope.',
@@ -107,6 +107,6 @@ export class VercelRemoteCacheProvider implements ICloudBuildCacheProvider {
   public async deleteCachedCredentialsAsync(
     _terminal: ITerminal,
   ): Promise<void> {
-    await deleteVercelCredentialForUserStore(this._options.teamId);
+    await deleteKhulnasoftCredentialForUserStore(this._options.teamId);
   }
 }

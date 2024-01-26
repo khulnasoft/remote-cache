@@ -1,7 +1,7 @@
 {
-  "name": "@vercel/remote",
+  "name": "@khulnasoft/remote",
   "version": "1.0.1",
-  "description": "An SDK for remote artifact caching on Vercel",
+  "description": "An SDK for remote artifact caching on Khulnasoft",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vercel/remote-cache.git"
+    "url": "git+https://github.com/khulnasoft/remote-cache.git"
   },
   "keywords": [],
   "author": "Jared Palmer",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/vercel/remote-cache/issues"
+    "url": "https://github.com/khulnasoft/remote-cache/issues"
   },
-  "homepage": "https://github.com/vercel/remote-cache#readme",
+  "homepage": "https://github.com/khulnasoft/remote-cache#readme",
   "devDependencies": {
     "@types/concat-stream": "^2.0.0",
     "@types/node": "12.20.24",

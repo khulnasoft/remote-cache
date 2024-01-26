@@ -1,10 +1,11 @@
 # Local Development
 
-This is a [Turborepo](https://turborepo.org/) using [pnpm workspaces](https://pnpm.io/workspaces). 
+This is a [Turborepo](https://turborepo.org/) using [pnpm workspaces](https://pnpm.io/workspaces).
 
 To develop on the packages in this repo, use the steps bellow
 
 ## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -30,13 +31,11 @@ pnpm i
 pnpm dev
 ```
 
-
 ## Build
 
 ```sh
 pnpm build
 ```
-
 
 ## Test
 

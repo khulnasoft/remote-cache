@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Vercel Remote Cache SDK",
+  "display": "Khulnasoft Remote Cache SDK",
   "extends": "tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",

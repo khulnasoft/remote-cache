@@ -1,10 +1,10 @@
-# @vercel/remote
+# @khulnasoft/remote
 
 ## 1.0.1
 
 ### Patch Changes
 
-- 0093240: Switch fetcher from vercel/fetch to node-fetch
+- 0093240: Switch fetcher from khulnasoft/fetch to node-fetch
 
 ## 1.0.0
 

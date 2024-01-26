@@ -5,8 +5,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush-plugins.schema.json",
   "plugins": [
     {
-      "packageName": "@vercel/remote-rush",
-      "pluginName": "rush-vercel-remote-cache-plugin",
+      "packageName": "@khulnasoft/remote-rush",
+      "pluginName": "rush-khulnasoft-remote-cache-plugin",
       "autoinstallerName": "rush-plugins"
     }
   ]

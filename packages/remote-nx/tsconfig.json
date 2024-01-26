@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Nx remote cache on Vercel",
+  "display": "Nx remote cache on Khulnasoft",
   "extends": "tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",

@@ -17,7 +17,7 @@
    *
    * Possible values: "local-only", "azure-blob-storage", "amazon-s3"
    */
-  "cacheProvider": "vercel-remote-cache",
+  "cacheProvider": "khulnasoft-remote-cache",
 
   /**
    * Setting this property overrides the cache entry ID.  If this property is set, it must contain
