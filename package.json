@@ -37,7 +37,7 @@
     "typescript": "^4.8.0"
   },
   "engines": {
-    "pnpm": ">=8.0.0",
+    "pnpm": "7.33.6",
     "node": ">=18.0.0"
   },
   "prettier": "@khulnasoft/style-guide/prettier",
