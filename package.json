@@ -41,5 +41,8 @@
     "node": ">=18.0.0"
   },
   "prettier": "@khulnasoft/style-guide/prettier",
-  "packageManager": "pnpm@8.11.0"
+  "packageManager": "pnpm@8.11.0",
+  "dependencies": {
+    "@rushstack/rush-sdk": "5.78.0"
+  }
 }
