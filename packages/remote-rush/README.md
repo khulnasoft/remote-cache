@@ -92,9 +92,9 @@ Copy the following `rush-project.json` to `apps/my-app/config/rush-project.json`
   "operationSettings": [
     {
       "operationName": "build",
-      "outputFolderNames": ["lib"]
-    }
-  ]
+      "outputFolderNames": ["lib"],
+    },
+  ],
 }
 ```
 
@@ -106,7 +106,7 @@ Also update `"buildCacheEnabled": true` in [common/config/rush/build-cache.json]
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/build-cache.schema.json",
   "buildCacheEnabled": true,
-  "cacheProvider": "local-only"
+  "cacheProvider": "local-only",
 }
 ```
 
@@ -219,8 +219,8 @@ Add `@khulnasoft/remote-rush` as a dependency to this `package.json`.
   "private": true,
   "dependencies": {
     // We added this line
-    "@khulnasoft/remote-rush": "latest"
-  }
+    "@khulnasoft/remote-rush": "latest",
+  },
 }
 ```
 
@@ -243,9 +243,9 @@ Update the `rush-plugins.json` file so it matches the following config.
     {
       "packageName": "@khulnasoft/remote-rush",
       "pluginName": "rush-khulnasoft-remote-cache-plugin",
-      "autoinstallerName": "rush-plugins"
-    }
-  ]
+      "autoinstallerName": "rush-plugins",
+    },
+  ],
 }
 ```
 
@@ -255,7 +255,7 @@ Finally we need to point Rush's build cache configuration to point to Khulnasoft
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/build-cache.schema.json",
   "buildCacheEnabled": true,
-  "cacheProvider": "khulnasoft-remote-cache"
+  "cacheProvider": "khulnasoft-remote-cache",
 }
 ```
 

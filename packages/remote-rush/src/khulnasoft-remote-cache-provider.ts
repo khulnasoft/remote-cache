@@ -80,7 +80,9 @@ export class KhulnasoftRemoteCacheProvider implements ICloudBuildCacheProvider {
       return true;
     } catch (e) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      terminal.writeWarningLine(`Error uploading cache entry to Khulnasoft: ${e}`);
+      terminal.writeWarningLine(
+        `Error uploading cache entry to Khulnasoft: ${e}`,
+      );
       return false;
     }
   }
@@ -89,7 +91,10 @@ export class KhulnasoftRemoteCacheProvider implements ICloudBuildCacheProvider {
     terminal: ITerminal,
     credential: string,
   ): Promise<void> {
-    await updateKhulnasoftCredentialForUserStore(credential, this._options.teamId);
+    await updateKhulnasoftCredentialForUserStore(
+      credential,
+      this._options.teamId,
+    );
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await

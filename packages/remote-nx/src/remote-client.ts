@@ -28,7 +28,9 @@ function getCredentials(options: KhulnasoftRemoteCacheOptions) {
   };
 }
 
-export function getKhulnasoftRemoteCacheClient(options: KhulnasoftRemoteCacheOptions) {
+export function getKhulnasoftRemoteCacheClient(
+  options: KhulnasoftRemoteCacheOptions,
+) {
   // Prevents a client warning of 'MaxListenersExceededWarning'
   // The warning originates when nx-remotecache-custom creates a tarball
   // of the build artifacts.

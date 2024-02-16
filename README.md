@@ -45,8 +45,8 @@ Build systems and tools that integrate with Khulnasoft Remote Caching.
 
 ## Packages
 
-| Name                                         | Description                                              | Package                                                                                                           |
-| -------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Name                                             | Description                                                  | Package                                                                                                                       |
+| ------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | [@khulnasoft/remote](packages/remote/)           | An SDK for remote artifact caching on Khulnasoft             | [![@khulnasoft/remote](https://img.shields.io/npm/v/@khulnasoft/remote)](https://npmjs.org/@khulnasoft/remote)                |
 | [@khulnasoft/remote-nx](packages/remote-nx/)     | Remote caching plugin for Nx using Khulnasoft Remote Cache   | [![@khulnasoft/remote-nx](https://img.shields.io/npm/v/@khulnasoft/remote-nx)](https://npmjs.org/@khulnasoft/remote-nx)       |
 | [@khulnasoft/remote-rush](packages/remote-rush/) | Remote caching plugin for Rush using Khulnasoft Remote Cache | [![@khulnasoft/remote-rush](https://img.shields.io/npm/v/@khulnasoft/remote-rush)](https://npmjs.org/@khulnasoft/remote-rush) |

@@ -38,17 +38,17 @@ In your `nx.json` file you will find a `tasksRunnerOptions` field. Update this f
       "options": {
         "cacheableOperations": ["build", "test", "lint", "e2e"],
         "token": "<token>",
-        "teamId": "<teamId>"
-      }
-    }
-  }
+        "teamId": "<teamId>",
+      },
+    },
+  },
 }
 ```
 
 You can specify your `token` and `teamId` in your nx.json or set them as environment variables.
 
-| Parameter                 | Description                                           |  Environment Variable / .env   | `nx.json` |
-| ------------------------- | ----------------------------------------------------- | ------------------------------ | --------- |
+| Parameter                     | Description                                               |  Environment Variable / .env       | `nx.json` |
+| ----------------------------- | --------------------------------------------------------- | ---------------------------------- | --------- |
 | Khulnasoft Access Token       | Khulnasoft access token with access to the provided team  | `NX_KHULNASOFT_REMOTE_CACHE_TOKEN` | `token`   |
 | Khulnasoft Team ID (optional) | The Khulnasoft Team ID that should share the Remote Cache | `NX_KHULNASOFT_REMOTE_CACHE_TEAM`  | `teamId`  |
 
